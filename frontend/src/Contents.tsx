@@ -1,3 +1,6 @@
+import AutoCounter from './AutoCounter'
+
+
 const certifications = ['基本情報技術者', 'AWS CLF-C02']
 
 const techStack = [
@@ -36,11 +39,13 @@ function Contents() {
         </section>
 
         <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <article className="rounded-[28px] border border-slate-800 bg-slate-900/80 p-8 text-left shadow-xl shadow-slate-950/30 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+          <article className="rounded-[28px] border border-slate-700 bg-slate-900 p-8 text-left shadow-xl shadow-slate-950/30 backdrop-blur">
+            <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white">
               Certifications
             </p>
-            <h2 className="mt-3 text-2xl font-semibold text-white">取得資格</h2>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight !text-white">
+              取得資格
+            </h2>
             <ul className="mt-6 space-y-4">
               {certifications.map((certification) => (
                 <li
@@ -53,11 +58,11 @@ function Contents() {
             </ul>
           </article>
 
-          <article className="rounded-[28px] border border-slate-800 bg-slate-900/80 p-8 text-left shadow-xl shadow-slate-950/30 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
+          <article className="rounded-[28px] border border-slate-700 bg-slate-900 p-8 text-left shadow-xl shadow-slate-950/30 backdrop-blur">
+            <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white">
               Tech Stack
             </p>
-            <h2 className="mt-3 text-2xl font-semibold text-white">
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight !text-white">
               使用経験のある技術スタック
             </h2>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -72,6 +77,7 @@ function Contents() {
             </div>
           </article>
         </section>
+        <AutoCounter />
       </div>
     </main>
   )
