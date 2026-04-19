@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 
-interface VisitorCounter {
-  counter: number;
-}
 
 function AutoCounter() {
-  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [visitorCount, setVisitorCount] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
 
     const syncVisitorCount = async () => {
       try {
-        const { counter } = await updateVisitorCounter();
+        const counter = await updateVisitorCounter();
 
         if (isMounted) {
           setVisitorCount(counter);
@@ -42,20 +39,24 @@ function AutoCounter() {
   );
 }
 
-async function updateVisitorCounter(): Promise<VisitorCounter> {
+async function updateVisitorCounter() {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
   if (!apiBaseUrl) {
     throw new Error("VITE_API_BASE_URL is not defined");
   }
 
-  const response = await fetch(apiBaseUrl);
+  const response = await fetch(apiBaseUrl, {
+    method: "POST",
+  });
 
   if (!response.ok) {
     throw new Error(`HTTP error: ${response.status}`);
   }
 
-  return (await response.json()) as VisitorCounter;
+  const counter = await response.json();
+
+  return counter["body"];
 }
 
 export default AutoCounter;
