@@ -6,18 +6,18 @@ on:
       - main
     paths:
       - 'frontend/**'
-    pull_request:
-      branches:
-        - main
-      paths:
-        - 'frontend/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,6 +34,26 @@ jobs:
       - name: Build
         working-directory: frontend
         run: bun run build
+
+      - name: Upload build artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+          retention-days: 1
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
