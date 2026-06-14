@@ -1,22 +1,23 @@
-import AutoCounter from './AutoCounter'
+import AutoCounter from "./AutoCounter";
 
-
-const certifications = ['基本情報技術者', 'AWS CLF-C02']
+const certifications = ["基本情報技術者", "AWS CLF-C02"];
 
 const techStack = [
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Next.js',
-  'Bun',
-  'Python',
-  'FastAPI',
-  'Golang',
-  'C',
-  'Docker',
-  'PostgreSQL',
-  'Unreal Engine',
-]
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Bun",
+  "Python",
+  "FastAPI",
+  "Golang",
+  "C",
+  "Docker",
+  "PostgreSQL",
+  "Unreal Engine",
+  "GitHub Actions",
+  "Terraform",
+];
 
 function Contents() {
   return (
@@ -80,7 +81,7 @@ function Contents() {
         <AutoCounter />
       </div>
     </main>
-  )
+  );
 }
 
-export default Contents
+export default Contents;
