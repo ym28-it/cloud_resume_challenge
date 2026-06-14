@@ -34,7 +34,7 @@ module "iam" {
 module "s3" {
   source                      = "./modules/s3"
   aws_account_id              = var.aws_account_id
-  cloudfront_distoribution_id = var.cloudfront_distribution_id
+  cloudfront_distribution_id = var.cloudfront_distribution_id
 }
 
 module "acm" {

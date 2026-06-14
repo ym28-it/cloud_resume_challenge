@@ -28,7 +28,7 @@ resource "aws_s3_bucket_policy" "this" {
         Resource = "arn:aws:s3:::crc-resume-hosting/*"
         Condition = {
           ArnLike = {
-            "AWS:SourceArn" = "arn:aws:cloudfront::${var.aws_account_id}:distribution/ED30K9WJ2HFET"
+            "AWS:SourceArn" = "arn:aws:cloudfront::${var.aws_account_id}:distribution/${var.cloudfront_distribution_id}"
           }
         }
       }

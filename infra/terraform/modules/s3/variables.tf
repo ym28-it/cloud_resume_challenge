@@ -4,7 +4,7 @@ variable "aws_account_id" {
   sensitive   = true
 }
 
-variable "cloudfront_distoribution_id" {
+variable "cloudfront_distribution_id" {
   description = "CloudFront DistributionID"
   type        = string
 }
