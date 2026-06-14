@@ -1,2 +1,6 @@
 [tools]
 terraform = "latest"
+
+[env]
+AWS_PROFILE = "crc-prac"
+AWS_DEFAULT_REGION = "ap-northeast-1"
