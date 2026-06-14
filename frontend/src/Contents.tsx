@@ -10,6 +10,7 @@ const techStack = [
   "Bun",
   "Python",
   "FastAPI",
+  "Flask",
   "Golang",
   "C",
   "Docker",
