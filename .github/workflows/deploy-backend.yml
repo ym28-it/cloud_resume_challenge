@@ -6,6 +6,11 @@ on:
       - main
     paths:
       - 'lambda/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'lambda/**'
 
 permissions:
   id-token: write
